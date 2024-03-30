@@ -69,10 +69,14 @@
             /** @type {string} */
             let variable = this.properties.variable;
             if (!variable) {
+                this.setOutputData(0, null); // clear output
+                this.setOutputData(1, null);
                 return;
             }
             let v = global[variable];
             if (!v) {
+                this.setOutputData(0, null); // clear output
+                this.setOutputData(1, null);
                 return;
             }
             /** @type {ArrayFunctionBase} */
@@ -117,11 +121,17 @@
             /** @type {ArrayFunctionBase} */
             let widget = this.getInputData(1);
             if (!array || !widget) {
+                this.setOutputData(0, null); // clear output
+                this.setOutputData(1, null);
                 return;
             }
             /** @type {Function} */
             let func = widget._func
-            if(!func) return;
+            if(!func){
+                this.setOutputData(0, null); // clear output
+                this.setOutputData(1, null);
+                return;
+            }
             let output
             try{
                 output = array.map(func);
@@ -154,11 +164,17 @@
             /** @type {ArrayFunctionBase} */
             let widget = this.getInputData(1);
             if (!array || !widget) {
+                this.setOutputData(0, null); // clear output
+                this.setOutputData(1, null);
                 return;
             }
             /** @type {Function} */
             let func = widget._func;
-            if(!func) return;
+            if(!func){
+                this.setOutputData(0, null); // clear output
+                this.setOutputData(1, null);
+                return;
+            }
             let output;
             try{
                 output = array.filter(func);
@@ -191,11 +207,15 @@
             /** @type {ArrayFunctionBase} */
             let widget = this.getInputData(1);
             if (!array|| !widget) {
+                this.setOutputData(0, null); // clear output
                 return;
             }
             /** @type {Function} */
             let func = widget._func;
-            if(!func) return;
+            if(!func){
+                this.setOutputData(0, null); // clear output
+                return;
+            }
             let initialvalue = this.getInputData(2);
             let output;
             try{
@@ -231,6 +251,8 @@
             /** @type {Array} */
             let array = this.getInputData(0);
             if (!array) {
+                this.setOutputData(0, null); // clear output
+                this.setOutputData(1, null);
                 return;
             }
             /** @type {ArrayFunctionBase} */
@@ -242,12 +264,12 @@
             }else{
                 func = widget._func;
             }
-            let output;
+            let output = array.slice();
             if (!func) {
-                output = array.sort();
+                output.sort();
             }else{
                 try{
-                    output = array.sort(func);
+                    output.sort(func);
                 }catch(err){
                     widget.setError(err);
                     this.setOutputData(0, null); // clear output
@@ -281,6 +303,8 @@
             /** @type {number} */
             let end = this.getInputData(2);
             if (!array){
+                this.setOutputData(0, null); // clear output
+                this.setOutputData(1, null);
                 return;
             }
             start = parseInt(start);
