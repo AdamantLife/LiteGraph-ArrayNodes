@@ -11,7 +11,7 @@
 ### Array Function
 Used to supply callback functions to other `Array Nodes` that accept one.
 
-The first input is the number of arguments to declare for the callback function. An argument with name `arg${i}` will be created for each **i** in **range [0, i)** which can be accessed within the function. This *does not* need to match the expected number of arguments of the correspending array function.
+The first input is the number of arguments to declare for the callback function. An argument with name `arg${i}` will be created for each **i** in **range [0, arguments)** which can be accessed within the function. This *does not* need to match the expected number of arguments of the correspending array function.
 
 The second input is a string representing Javascript which will be used to create the function. Because this Node allows for non-trivial code execution the provided code should include a return statement. That being said, the UI available in LiteGraph makes it difficult to write and edit more complex code on the page so in practice these callback functions should be short.
 
