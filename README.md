@@ -35,13 +35,13 @@ LiteGraph.registerNodeType("Array/MyMapFunction", MyArrayMapFunction);
 ![Custom Map Function Sample](readme-images/custom-function.png)
 
 ## Array Nodes
-The following nodes (with the exception of `Array Reduce`) output both an Array and the length of the outputted Array.
+The following Nodes (with the exception of `Array Reduce`) output both an Array and the length of the outputted Array.
 
 ### Array Create
-Creates a new array using the `Array(length)` constructor. Has a length property which dictates the length of the created array. The new Array is filled with null values. Accepts an optional input which is an `ArrayFunctionBase` and will be mapped to the new array (via `newarray.map(fn);`).
+Creates a new array using the `Array(length)` constructor. Has a `Length` property which dictates the length of the created array. The new Array is filled with null values. Accepts an optional input which is an `ArrayFunctionBase` and will be mapped to the new array (via `newarray.map(fn);`).
 
 ### Array From Variable
-Creates a new array using the `Array.from(value)` method. Has a variable name property which will be used to retrieve the desired Variable from the global scope. Accepts an optional input which is an `ArrayFunctionBase` and will be mapped to the constructed array (via `newarray.map(fn);`).
+Creates a new array using the `Array.from(value)` method. Has a `Variable` string property which will be used to retrieve the desired variable from the global scope. Accepts an optional input which is an `ArrayFunctionBase` and will be mapped to the constructed array (via `newarray.map(fn);`).
 
 ## Array Manipulation Nodes
 The following Nodes correspond to Javascript Array methods and all accept an Array Node as their first input.

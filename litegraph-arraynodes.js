@@ -9,7 +9,7 @@
             this.addProperty("length", 1);
             this.addOutput("Array", "array");
             this.addOutput("Length", "number");
-            this.addWidget("number", "length", 1, "length", {min: 0.0, step: 10.0, precision: 0});
+            this.addWidget("number", "Length", 1, "length", {min: 0.0, step: 10.0, precision: 0});
         }
 
         onPropertyChanged(name, value) {
@@ -56,7 +56,7 @@
             this.addProperty("variable", "");
             this.addOutput("Array", "array");
             this.addOutput("Length", "number");
-            this.addWidget("text", "variable", "", "variable");
+            this.addWidget("text", "Variable", "", "variable");
         }
 
         onPropertyChanged(name, value) {
@@ -319,9 +319,9 @@
         constructor(o) {
             super(o);
             this.addProperty("number", 0);
-            this.numberwidget = this.addWidget("number","arguments",0,"number", {min: 0.0, step: 10.0, precision: 0});
+            this.numberwidget = this.addWidget("number","Arguments",0,"number", {min: 0.0, step: 10.0, precision: 0});
             this.addProperty("code", "return null;");
-            this.codewidget = this.addWidget("string","code","return null;","code");
+            this.codewidget = this.addWidget("string","Callback","return null;","code");
             this._func = new Function("return null;");
         }
 
